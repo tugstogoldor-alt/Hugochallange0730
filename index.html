@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="mn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="theme-color" content="#080a0f">
+  <title>HUGO Challenge — No Excuses</title>
+  <link rel="icon" href="assets/hugo-logo.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="topbar">
+    <a class="brand" href="#home"><img src="assets/hugo-logo.svg" alt="HUGO Challenge"></a>
+    <nav>
+      <a href="#challenges">Challenges</a>
+      <a href="#proof">Daily Proof</a>
+      <a href="#community">Community</a>
+      <a href="#rewards">Rewards</a>
+      <a href="#motivation">Motivation</a>
+    </nav>
+    <div class="account-area">
+      <button class="ghost-btn" id="loginBtn">Login</button>
+      <button class="primary-btn small" id="accountBtn">Create account</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-photo"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="eyebrow"><span class="pulse-dot"></span> 30 DAYS • NO EXCUSES</div>
+        <h1>Өнөөдөр өөрийгөө<br><em>ял.</em></h1>
+        <p>Өдөр бүр нэг жижиг ялалт. Зургаар баталгаажуул. Streak-ээ хадгал. Өчигдрийн өөрийгөө дав.</p>
+        <div class="hero-actions">
+          <a class="primary-btn" href="#challenges">Challenge сонгох <span>→</span></a>
+          <button class="secondary-btn" id="heroAccountBtn">Өөрийн account нээх</button>
+        </div>
+        <div class="quote-strip"><span>“</span><strong id="heroQuote">Өнөөдрийн шийдвэр маргаашийн чамайг бүтээнэ.</strong><span>”</span></div>
+      </div>
+      <div class="hero-stats">
+        <div><strong>30</strong><span>DAY CHALLENGES</span></div>
+        <div><strong>01</strong><span>PHOTO / DAY</span></div>
+        <div><strong>∞</strong><span>NO EXCUSES</span></div>
+      </div>
+    </section>
+
+    <section class="section intro" id="challenges">
+      <div class="section-head">
+        <div><span class="section-kicker">CHOOSE YOUR FIGHT</span><h2>Өөрийгөө сорь.</h2></div>
+        <p>Өөрийн зорилгоо сонгоод өдөр бүр proof зураг оруулж, challenge-ээ биелүүл.</p>
+      </div>
+
+      <div class="category-tabs" role="tablist">
+        <button class="tab active" data-filter="all">ALL</button>
+        <button class="tab" data-filter="habit">LIFESTYLE</button>
+        <button class="tab" data-filter="street">STREET WORKOUT</button>
+        <button class="tab" data-filter="gym">GYM</button>
+      </div>
+      <div class="challenge-grid" id="challengeGrid"></div>
+    </section>
+
+    <section class="section proof-section" id="proof">
+      <div class="proof-copy">
+        <span class="section-kicker">DAILY PROOF</span>
+        <h2>Хэлэхээс илүү<br><em>хий.</em></h2>
+        <p>Өдөр бүр нэг зураг. Чиний progress чиний өөрийн түүх болно.</p>
+        <div class="proof-points">
+          <div><span>01</span><p>Өдрийн challenge-ээ сонго</p></div>
+          <div><span>02</span><p>Proof зураг upload хий</p></div>
+          <div><span>03</span><p>Complete дарж streak-ээ үргэлжлүүл</p></div>
+        </div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-top"><span id="proofDayLabel">DAY 01</span><span class="streak">🔥 <b id="proofStreak">0</b> STREAK</span></div>
+        <div class="upload-box" id="uploadBox">
+          <input type="file" id="proofInput" accept="image/*" hidden>
+          <div class="upload-icon">＋</div>
+          <h3>Today's proof</h3>
+          <p>Зургаа сонгоод өнөөдрийн хийсэн зүйлээ баталгаажуул.</p>
+          <button class="secondary-btn" id="choosePhoto">Зураг сонгох</button>
+          <img id="preview" alt="Today's proof preview">
+        </div>
+        <button class="primary-btn wide" id="completeBtn">✓ ӨНӨӨДӨР БИЕЛҮҮЛЛЭЭ</button>
+        <div class="proof-note" id="proofNote">Эхлээд account үүсгээд challenge эхлүүлээрэй.</div>
+      </div>
+    </section>
+
+    <section class="section progress-section">
+      <div class="section-head"><div><span class="section-kicker">YOUR JOURNEY</span><h2>Streak-ээ хар.</h2></div><p>Таны challenge-үүд болон өдөр бүрийн proof энд цугларна.</p></div>
+      <div class="dashboard" id="dashboard">
+        <div class="dash-card profile-card"><div class="avatar" id="avatar">H</div><div><span>WELCOME</span><h3 id="profileName">Guest</h3><small id="profileStatus">Account үүсгээгүй</small></div><button class="icon-btn" id="profileBtn">⚙</button></div>
+        <div class="dash-card metric"><span>CURRENT STREAK</span><strong id="dashStreak">0</strong><small>days 🔥</small></div>
+        <div class="dash-card metric"><span>COMPLETED DAYS</span><strong id="dashCompleted">0</strong><small>proofs</small></div>
+        <div class="dash-card metric"><span>CHALLENGES</span><strong id="dashChallenges">0</strong><small>active</small></div>
+      </div>
+      <div class="timeline" id="timeline"></div>
+    </section>
+
+    <section class="section community-section" id="community">
+      <div class="section-head"><div><span class="section-kicker">COMMUNITY</span><h2>Хамтдаа<br>урам өг.</h2></div><p>Challenge-д нэгдсэн хүмүүсийн public progress-ийг харж, тэдэнд урам өгч болно. Өөрийн proof-оо share хийж feed-дээ нэмээрэй.</p></div>
+      <div class="community-toolbar">
+        <div class="community-stats"><div><strong id="participantCount">128</strong><span>CHALLENGERS</span></div><div><strong id="proofCount">1,846</strong><span>PROOFS</span></div><div><strong id="activeCount">64</strong><span>ACTIVE TODAY</span></div></div>
+        <button class="primary-btn" id="openShareBtn">📸 STORY SHARE ҮҮСГЭХ</button>
+      </div>
+      <div class="participant-grid" id="participantGrid"></div>
+    </section>
+
+    <section class="section rewards-section" id="rewards">
+      <div class="section-head"><div><span class="section-kicker">FINISHER REWARDS</span><h2>30/30 хүрвэл<br><em>бэлэгтэй.</em></h2></div><p>Challenge-ээ амжилттай дуусгасан хүмүүст хамтрагч байгууллагуудын тусгай бэлэг, хөнгөлөлт, урамшуулал олгох хэсэг.</p></div>
+      <div class="reward-grid">
+        <article class="reward-card"><span class="reward-badge">FINISHER</span><div class="reward-icon">🏆</div><h3>HUGO FINISHER BADGE</h3><p>30/30 өдрөө амжилттай дуусгасан профайлд автоматаар badge нэмэгдэнэ.</p><span class="reward-status">UNLOCK AT 30 / 30</span></article>
+        <article class="reward-card"><span class="reward-badge">PARTNER 01</span><div class="reward-icon">🎁</div><h3>PARTNER GIFT</h3><p>Хамтрагч байгууллагын гарын бэлэг эсвэл купон. Partner name, нөхцөлийг admin тохируулна.</p><button class="secondary-btn reward-demo" data-reward="Partner Gift">Хэрхэн авах вэ?</button></article>
+        <article class="reward-card"><span class="reward-badge">PARTNER 02</span><div class="reward-icon">⚡</div><h3>FINISHER PERK</h3><p>Challenge төрлөөс хамаарч тусгай хөнгөлөлт, membership эсвэл бүтээгдэхүүний урамшуулал.</p><button class="secondary-btn reward-demo" data-reward="Finisher Perk">Дэлгэрэнгүй</button></article>
+      </div>
+    </section>
+
+    <section class="section motivation" id="motivation">
+      <div class="motivation-card">
+        <div class="sparkles">✦ ✦ ✦</div>
+        <span class="section-kicker">KEEP GOING</span>
+        <h2 id="motivationTitle">Өнөөдөр чадсан бол<br><em>маргааш ч чадна.</em></h2>
+        <p id="motivationText">Төгс байх шаардлагагүй. Харин өнөөдөр бууж өгөхгүй байх л хэрэгтэй.</p>
+        <div class="signature">— HUGO CHALLENGE</div>
+      </div>
+    </section>
+  </main>
+
+  <footer><img src="assets/hugo-logo.svg" alt="HUGO"><span>NO EXCUSES. JUST PROOF.</span><span>© 2026 HUGO Challenge</span></footer>
+
+  <div class="modal-backdrop" id="accountModal">
+    <div class="modal">
+      <button class="modal-close" data-close="accountModal">×</button>
+      <span class="section-kicker">YOUR ACCOUNT</span>
+      <h2 id="modalTitle">HUGO account</h2>
+      <p>Нэрээ оруулаад өөрийн challenge journey-г эхлүүл.</p>
+      <form id="accountForm">
+        <label>Нэр / Username<input id="nameInput" required maxlength="24" placeholder="Жишээ: Hugo"></label>
+        <label>Email<input id="emailInput" type="email" placeholder="you@example.com"></label>
+        <label>Password<input id="passwordInput" type="password" minlength="4" placeholder="••••••••"></label>
+        <button class="primary-btn wide" type="submit">ACCOUNT ҮҮСГЭХ →</button>
+      </form>
+      <div class="modal-divider">LOCAL DEMO</div>
+      <p class="muted">Энэ хувилбарын account болон proof зураг таны browser дээр хадгалагдана.</p>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="challengeModal">
+    <div class="modal challenge-modal">
+      <button class="modal-close" data-close="challengeModal">×</button>
+      <div id="challengeModalContent"></div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="shareModal">
+    <div class="modal share-modal">
+      <button class="modal-close" data-close="shareModal">×</button>
+      <span class="section-kicker">INSTAGRAM STORY</span>
+      <h2>Proof-оо share хий.</h2>
+      <p>Challenge төрлөө сонгоод зургаа оруул. HUGO frame дээр Day + Challenge + SUCCESS автоматаар гарна.</p>
+      <form id="shareForm">
+        <label>Challenge<select id="shareChallenge"></select></label>
+        <label>Day<input id="shareDay" type="number" min="1" max="30" value="1"></label>
+        <label>Proof зураг<input id="shareInput" type="file" accept="image/*"></label>
+        <div class="story-preview-wrap"><canvas id="storyCanvas" width="360" height="640"></canvas></div>
+        <button class="primary-btn wide" type="submit">INSTAGRAM STORY БЭЛДЭХ →</button>
+      </form>
+      <button class="secondary-btn wide" id="nativeShareBtn" style="margin-top:10px">📲 SHARE / SAVE STORY</button>
+      <p class="muted">Утас дээр Instagram сонголт гарч ирвэл шууд Instagram руу share хийж болно. Desktop дээр зураг хадгалагдана.</p>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <div class="confetti" id="confetti"></div>
+  <script src="app.js"></script>
+</body>
+</html>
